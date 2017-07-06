@@ -1,0 +1,25 @@
+{
+  "name": "sca-service-freesurferpost",
+  "version": "1.0.0",
+  "description": "run some common file conversions after freesurfer recon-all",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "start.sh",
+    "stop": "stop.sh",
+    "status": "status.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brain-life/app-freesurfer-post.git"
+  },
+  "author": "Brent McPherson <bcmcpher@iu.edu>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brain-life/app-freesurfer-post/issues"
+  },
+  "homepage": "https://github.com/brain-life/app-freesurfer-post#readme"
+}
