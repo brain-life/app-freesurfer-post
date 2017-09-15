@@ -24,10 +24,10 @@ SUBJ=output
 MNI152=$FSLDIR/data/standard/MNI152_T1_1mm_brain.nii.gz
 MNIMASK=$FSLDIR/data/standard/MNI152_T1_1mm_brain_mask.nii.gz
 
-SUBJECTS_DIR=$FSOP
+SUBJECTS_DIR=`pwd`
 source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
-VOLDIR=$SUBJECTS_DIR/$SUBJ/mri
+VOLDIR=$FSOP/mri
 
 ##
 ## convert labeled volumes into FS space and dt6 space
