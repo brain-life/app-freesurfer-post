@@ -9,7 +9,7 @@ module load fsl/5.0.9
 module load freesurfer/6.0.0
 
 ## run tool
-bash ./main.sh
+bash $SERVICE_DIR/main.sh
 
 ## check if it worked? this just assumes it succeeds
 echo 0 > finished
