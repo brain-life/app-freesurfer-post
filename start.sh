@@ -13,7 +13,7 @@ fi
 rm -f finished
 
 echo "Submitting.."
-jobid=`qsub submit.pbs`
+jobid=`qsub $SERVICE_DIR/submit.pbs`
 echo $jobid > jobid
 
 if [ $ENV == "VM" ]; then

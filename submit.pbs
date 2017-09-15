@@ -4,11 +4,9 @@
 #PBS -V
 
 ## set up environment for HPC
-if [ $ENV == "IUHPC" ]; then
-    cd $PBS_O_WORKDIR
-    module load fsl
-    module load freesurfer
-fi
+cd $PBS_O_WORKDIR
+module load fsl/5.0.9
+module load freesurfer/6.0.0
 
 ## run tool
 bash ./main.sh
