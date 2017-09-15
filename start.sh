@@ -12,11 +12,9 @@ fi
 #clean up previous job (just in case)
 rm -f finished
 
-if [ $ENV == "IUHPC" ]; then
-	echo "Submitting.."
-	jobid=`qsub submit.pbs`
-	echo $jobid > jobid
-fi
+echo "Submitting.."
+jobid=`qsub submit.pbs`
+echo $jobid > jobid
 
 if [ $ENV == "VM" ]; then
     nohup time $SERVICE_DIR/submit.pbs > stdout.log 2> stderr.log &
