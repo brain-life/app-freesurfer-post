@@ -1,5 +1,5 @@
 {
-  "name": "sca-service-freesurferpost",
+  "name": "sca-service-freesurfer-post",
   "version": "1.0.0",
   "description": "run some common file conversions after freesurfer recon-all",
   "main": "index.js",
