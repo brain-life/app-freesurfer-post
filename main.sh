@@ -67,7 +67,7 @@ fslmaths brain.nii.gz -bin ./brainmask.nii.gz
 flirt -in brain.nii.gz -ref $MNI152 -omat ./subj2mni.xfm
 
 ## create inverse linear transform
-convert_xfm -omat ./mni2subj.xfm -inverse subj2mni.xfm
+convert_xfm -omat ./mni2subj.xfm -inverse ./subj2mni.xfm
 
 echo "Performing non-linear alignment of labels to subject space..."
 
@@ -80,7 +80,7 @@ invwarp --ref=brain.nii.gz --warp=subj2mni_warps.nii.gz --out=./mni2subj_warps
 echo "Aligning Shen278 atlas labels to subject space..."
 
 ## resample labels for test
-applywarp -i $SERVICE_DIR/shen278_1mm.nii -r brain.nii.gz -o ./${SUBJ}_shen278 --warp=mni2subj_warps.nii.gz --interp=nn
+applywarp -i $SERVICE_DIR/shen278_1mm.nii -r brain.nii.gz -o ./warped_shen278 --warp=mni2subj_warps.nii.gz --interp=nn
 
 ## create inflated labels - blurs boundaries
 #fslmaths ${SUBJ}_shen278.nii.gz -kernel box 2 -dilF ${SUBJ}_shen278_labels.nii.gz 
