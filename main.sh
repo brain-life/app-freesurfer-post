@@ -15,7 +15,7 @@ if [ $ENV == "VM" ]; then
 fi
 
 ## grab the config.json inputs
-DIFF=`$SERVICE_DIR/jq -r '.diff' config.json`
+DIFF=`$SERVICE_DIR/jq -r '.diff' config.json`/dti/bin/b0.nii.gz
 FSOP=`$SERVICE_DIR/jq -r '.freesurfer' config.json`
 
 ## set up paths and environment variables
