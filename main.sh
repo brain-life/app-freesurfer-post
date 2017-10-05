@@ -48,16 +48,16 @@ mri_label2vol --seg $VOLDIR/aparc.a2009s+aseg.mgz --temp $DIFF --regheader $VOLD
 echo "Creating brain, white matter, and corpus callosum masks..."
 
 ## create brain masks
-mri_binarize --i aparc+aseg_full.nii.gz --min 1 --o ./output/mask_full.nii.gz 
-mri_binarize --i aparc+aseg_anat.nii.gz --min 1 --o ./output/mask_anat.nii.gz 
+mri_binarize --i ./output/aparc+aseg_full.nii.gz --min 1 --o ./output/mask_full.nii.gz 
+mri_binarize --i ./output/aparc+aseg_anat.nii.gz --min 1 --o ./output/mask_anat.nii.gz 
 
 ## create white matter masks
-mri_binarize --i aparc+aseg_full.nii.gz --o ./output/wm_full.nii.gz --match 2 41 16 17 28 60 51 53 12 52 13 18 54 50 11 251 252 253 254 255 10 49 46 7
-mri_binarize --i aparc+aseg_anat.nii.gz --o ./output/wm_anat.nii.gz --match 2 41 16 17 28 60 51 53 12 52 13 18 54 50 11 251 252 253 254 255 10 49 46 7
+mri_binarize --i ./output/aparc+aseg_full.nii.gz --o ./output/wm_full.nii.gz --match 2 41 16 17 28 60 51 53 12 52 13 18 54 50 11 251 252 253 254 255 10 49 46 7
+mri_binarize --i ./output/aparc+aseg_anat.nii.gz --o ./output/wm_anat.nii.gz --match 2 41 16 17 28 60 51 53 12 52 13 18 54 50 11 251 252 253 254 255 10 49 46 7
 
 ## create cc mask
-mri_binarize --i aparc+aseg_full.nii.gz --o ./output/cc_full.nii.gz --match 251 252 253 254 255
-mri_binarize --i aparc+aseg_anat.nii.gz --o ./output/cc_anat.nii.gz --match 251 252 253 254 255
+mri_binarize --i ./output/aparc+aseg_full.nii.gz --o ./output/cc_full.nii.gz --match 251 252 253 254 255
+mri_binarize --i ./output/aparc+aseg_anat.nii.gz --o ./output/cc_anat.nii.gz --match 251 252 253 254 255
 
 echo "Performing linear alignment of labels to subject space..."
 
@@ -86,4 +86,3 @@ applywarp -i $SERVICE_DIR/shen278_1mm.nii -r brain.nii.gz -o ./output/warped_she
 
 ## create inflated labels - blurs boundaries
 #fslmaths ${SUBJ}_shen278.nii.gz -kernel box 2 -dilF ${SUBJ}_shen278_labels.nii.gz 
-
